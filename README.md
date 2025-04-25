@@ -1,3 +1,8 @@
+# WayniWallet Challenge
+
+Aplicación de billetera digital desarrollada para el challenge técnico de Waynimóvil.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

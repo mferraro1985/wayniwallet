@@ -24,7 +24,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${inter.className} antialiased`}>
-				<div className="max-w-[430px] mx-auto overflow-hidden p-5">
+				<div className="flex flex-col max-w-[430px] min-h-screen max-h-screen mx-auto overflow-hidden">
 					{children}
 				</div>
 			</body>

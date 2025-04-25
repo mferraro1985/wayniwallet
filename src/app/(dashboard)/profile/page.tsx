@@ -1,7 +1,11 @@
+import Card from "@/components/ui/Card";
+import { PageHeader } from "@/components/ui/PageHeader";
+
 export default function ProfilePage() {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        TO DO - Profile page
-      </div>
-    );
-  }
+	return (
+		<>
+			<PageHeader title="Profile" />
+			<Card className="grow-1 gap-8">TO DO - Profile page</Card>
+		</>
+	);
+}

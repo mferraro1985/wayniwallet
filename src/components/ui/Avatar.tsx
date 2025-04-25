@@ -1,7 +1,7 @@
-import type React from "react";
 import Image from "next/image";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/utils/twMerge";
+import type { ReactNode } from "react";
 
 const avatarVariants = cva(
 	"rounded-full flex shrink-0 items-center justify-center overflow-hidden font-semibold",
@@ -26,33 +26,21 @@ const avatarVariants = cva(
 
 interface AvatarProps extends VariantProps<typeof avatarVariants> {
 	src?: string | null;
-	text?: string;
+	children?: ReactNode;
 	alt?: string;
 	className?: string;
 	customSize?: number;
 }
 
-const Avatar: React.FC<AvatarProps> = ({
+export default function Avatar({
 	src,
-	text,
+	children,
 	alt = "User avatar",
 	size,
 	variant,
 	className,
 	customSize = 40,
-}) => {
-
-	const getInitials = () => {
-		if (!text) return "?";
-		return text
-			.trim()
-			.split(/\s+/)
-			.map((word) => word[0])
-			.join("")
-			.toUpperCase()
-			.slice(0, 2);
-	};
-
+}: AvatarProps) {
 	return (
 		<div
 			className={cn(avatarVariants({ size, variant, className }))}
@@ -64,13 +52,11 @@ const Avatar: React.FC<AvatarProps> = ({
 					src={src}
 					alt={alt}
 					width={customSize}
-          height={customSize}
+					height={customSize}
 					className="w-full h-full object-cover"
 				/>
 			)}
-			{!src && text && <span>{getInitials()}</span>}
+			{!src && children}
 		</div>
 	);
-};
-
-export default Avatar;
+}
