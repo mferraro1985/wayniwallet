@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 	description: "Challenge Técnico",
 };
 
+export const viewport: Viewport = {
+	themeColor: "#0FD08B",
+};
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -19,7 +23,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} antialiased max-w-[430px] mx-auto`}>{children}</body>
+			<body className={`${inter.className} antialiased`}>
+				<div className="max-w-[430px] mx-auto overflow-hidden p-5">
+					{children}
+				</div>
+			</body>
 		</html>
 	);
 }
