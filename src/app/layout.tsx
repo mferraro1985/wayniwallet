@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ReactQueryProvider from "@/provider/ReactQueryProvider";
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -25,7 +26,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${inter.className} antialiased`}>
 				<div className="flex flex-col max-w-[430px] min-h-screen max-h-screen mx-auto overflow-hidden">
-					{children}
+					<ReactQueryProvider>{children}</ReactQueryProvider>
 				</div>
 			</body>
 		</html>

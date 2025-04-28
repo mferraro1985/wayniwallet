@@ -17,6 +17,7 @@ export interface User {
 	avatar: string;
 	firsName: string;
 	lastName: string;
+	fullName: string;
 	email: string;
 	state: string;
 	city: string;

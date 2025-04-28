@@ -7,6 +7,7 @@ import { type Transaction, TransactionTypes } from "@/types/commons";
 type IconByType = Record<TransactionTypes, keyof typeof iconNames>;
 
 export default function TransactionList() {
+	
 	const transactions: Transaction[] = [
 		{
 			id: "saraza",
@@ -65,6 +66,7 @@ export default function TransactionList() {
 			type: TransactionTypes.Transfer,
 		},
 	];
+
 	const iconByType: IconByType = {
 		cashIn: "wallet",
 		payment: "arrow-down",
