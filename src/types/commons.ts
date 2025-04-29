@@ -12,8 +12,7 @@ export interface Transaction {
 	type: TransactionTypes;
 }
 
-export interface User {
-	id: string;
+export interface UserProfile {
 	avatar: string;
 	firsName: string;
 	lastName: string;
@@ -23,4 +22,13 @@ export interface User {
 	city: string;
 	street: string;
 	phone: string;
+}
+
+export interface ContactProfile extends UserProfile {
+	id: string;
+}
+export interface User {
+	id: string;
+	balance: number;
+	profile: UserProfile;
 }

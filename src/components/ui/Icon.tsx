@@ -9,7 +9,9 @@ export const iconNames = {
 	profile: "/assets/profile.svg",
 	transfer: "/assets/transfer.svg",
 	wallet: "/assets/wallet.svg",
-	calendar: "/assets/calendar.svg"
+	calendar: "/assets/calendar.svg",
+	chevronLeft: "/assets/chevron-left.svg",
+	chevronRight: "/assets/chevron-right.svg"
 };
 
 interface IconProps {
