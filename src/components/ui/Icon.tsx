@@ -11,7 +11,8 @@ export const iconNames = {
 	wallet: "/assets/wallet.svg",
 	calendar: "/assets/calendar.svg",
 	chevronLeft: "/assets/chevron-left.svg",
-	chevronRight: "/assets/chevron-right.svg"
+	chevronRight: "/assets/chevron-right.svg",
+	loader: "/assets/loader.svg"
 };
 
 interface IconProps {

@@ -14,7 +14,7 @@ export default function TransferList({ transfers }: TransfersListProps) {
 					<div className="flex items-center space-x-4">
 						<Avatar src={transfer.targetUser.avatar} />
 						<div>
-							<p className="text-lg">{transfer.name}</p>
+							<p className="text-lg">{transfer.targetUser.firsName}</p>
 							<p className="text-sm text-neutral-400">
 								{formatDate(transfer.date)}
 							</p>

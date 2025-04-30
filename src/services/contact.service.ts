@@ -15,5 +15,14 @@ export const ContactService = {
 			throw new Error("Failed to load contact data");
 		}
 	},
-	
+	async getContactById(id: string): Promise<ContactProfile | null> {
+		try {
+			const contactStorageded = (await this.getAllContacts()).find((contact) => contact.id === id);
+			console.log("serch by id",id,contactStorageded);
+			return contactStorageded || null;
+		} catch (error) {
+			console.error("Error fetching contact data:", error);
+			throw new Error("Failed to load contact data");
+		}
+	},
 };

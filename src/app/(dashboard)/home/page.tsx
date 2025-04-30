@@ -1,5 +1,5 @@
 "use client";
-import BalanceBox from "@/components/home/BalanceBox";
+import BalanceBox from "@/components/ui/BalanceBox";
 import ContactList from "@/components/home/ContactList";
 import TransactionList from "@/components/home/TransactionList";
 import Card from "@/components/ui/Card";
@@ -16,7 +16,7 @@ export default function HomePage() {
 	const { data: contactsData, isLoading: contactIsLoading } = useQuery({
 		queryKey: ["contacts"],
 		queryFn: () => ContactService.getAllContacts(),
-		refetchOnWindowFocus: false,
+		refetchOnWindowFocus: true,
 		// biome-ignore lint/style/useNumberNamespace: <explanation>
 		staleTime: Infinity,
 	});
@@ -24,9 +24,10 @@ export default function HomePage() {
 	const { data: transactionsData, isLoading: transactionIsLoading } = useQuery({
 		queryKey: ["transactions"],
 		queryFn: () => TransactionService.getAllTransaction(),
-		refetchOnWindowFocus: false,
+		refetchOnWindowFocus: true,
 		// biome-ignore lint/style/useNumberNamespace: <explanation>
-		staleTime: Infinity,
+		staleTime: 0,
+		refetchOnMount: true,
 	});
 
 	return (

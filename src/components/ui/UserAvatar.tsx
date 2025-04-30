@@ -3,11 +3,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Skeleton } from "./Skeleton";
 import { cn } from "@/utils/twMerge";
 
-const userAvatarVariants = cva(" font-bold", {
+const userAvatarVariants = cva("", {
 	variants: {
 		size: {
-			small: "inline-flex items-center gap-[0.3125rem] text-[0.9375rem]",
-			big: "flex flex-col items-center text-[2rem] gap-4",
+			small: "font-bold inline-flex items-center gap-[0.3125rem] text-[0.9375rem]",
+			medium: "flex flex-col items-center font-regular text-sm gap-4",
+			big: "font-bold flex flex-col items-center text-[2rem] gap-4",
 		},
 	},
 	defaultVariants: {
@@ -19,18 +20,20 @@ interface UserAvatarProps extends VariantProps<typeof userAvatarVariants> {
 	avatar: string;
 	fullname: string;
 	loading: boolean;
+	className?: string;
 }
 export default function UserAvatar({
 	size,
 	avatar,
 	fullname,
 	loading,
+	className,
 }: UserAvatarProps) {
 	return (
-		<div className={userAvatarVariants({ size })}>
+		<div className={cn(userAvatarVariants({ size }), className)}>
 			{!loading && (
 				<>
-					<Avatar src={avatar} size={size === "big" ? "xl" : "sm"} /> {fullname}
+					<Avatar src={avatar} size={size === "big" ? "xl" : size === "medium" ? "lg" : "sm"} /> {fullname}
 				</>
 			)}
 			{loading && (

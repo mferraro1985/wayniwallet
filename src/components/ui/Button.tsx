@@ -9,20 +9,22 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default:
-					"bg-lime-950 text-zinc-50 shadow hover:bg-lime-950/90",
+					"bg-white text-background shadow hover:bg-white/90",
 				destructive:
 					"bg-red-600 text-blackshadow-sm hover:bg-red-600/90",
 				outline:
-					"border border-input bg-white shadow-sm hover:bg-neutral-100 hover:text-lime-950",
+					"border border-white bg-background shadow-sm hover:bg-neutral-100 hover:text-background",
 				secondary:
 					"bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-100/80",
 				ghost: "hover:bg-neutral-100 hover:text-lime-950",
 				link: "text-lime-950 underline-offset-4 hover:underline",
+				submit: "bg-background text-white rounded-full shadow hover:bg-background/90 cursor-pointer",
 			},
 			size: {
 				default: "h-9 px-4 py-2",
 				sm: "h-8 rounded-md px-3 text-xs",
 				lg: "h-10 rounded-md px-8",
+				xl: "h-14 rounded-full px-8 text-xl",
 				icon: "h-9 w-9",
 			},
 		},

@@ -1,4 +1,3 @@
-
 type HttpMethod = "GET" | "POST" | "PUT";
 
 interface ApiRequest {
@@ -52,20 +51,32 @@ class LocalStorageApi {
 		if (!item) {
 			// @ts-ignore - Simular respuesta vacía para arrays
 			//return key.endsWith("s") ? [] : null;
-			return null
+			return null;
 		}
 		return JSON.parse(item) as T;
 	}
 
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	private saveItem<T>(key: string, data: any, params?: Record<string, string>): T {
-		if (params?.action === "PUSH") {
+	private saveItem<T>(
+		key: string,
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		data: any,
+		params?: Record<string, string>,
+	): T {
+		const isArrayOperation =
+			params?.action === "PUSH" || params?.action === "UNSHIFT";
+		if (isArrayOperation) {
 			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 			const collection = this.getItem<any[]>(key) || [];
-			const newItem = { id: crypto.randomUUID(), ...data}
-			collection.push(newItem)
+			const newItem = { id: crypto.randomUUID(), ...data };
+
+			if (params?.action === "PUSH") {
+				collection.push(newItem);
+			} else {
+				collection.unshift(newItem);
+			}
+
 			localStorage.setItem(key, JSON.stringify(collection));
-			return newItem as T
+			return newItem as T;
 		}
 
 		localStorage.setItem(key, JSON.stringify(data));
@@ -74,7 +85,13 @@ class LocalStorageApi {
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	private putItem<T>(key: string, data: any): T {
-		localStorage.setItem(key, data);
+		const item = localStorage.getItem(key);
+		if (item) {
+			const parsedItem = JSON.parse(item);
+			const newItem = { ...parsedItem, ...data };
+			localStorage.setItem(key, JSON.stringify(newItem));
+			return newItem as T;
+		}
 		return data as T;
 	}
 
@@ -82,8 +99,12 @@ class LocalStorageApi {
 		return this.request<T>("GET", { endpoint });
 	}
 
-	public post<T>(endpoint: string, data: unknown): Promise<T> {
-		return this.request<T>("POST", { endpoint, data });
+	public post<T>(
+		endpoint: string,
+		data: unknown,
+		params?: Record<string, string>,
+	): Promise<T> {
+		return this.request<T>("POST", { endpoint, data, params });
 	}
 	public put<T>(endpoint: string, data: unknown): Promise<T> {
 		return this.request<T>("PUT", { endpoint, data });

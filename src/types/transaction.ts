@@ -31,3 +31,9 @@ export type TransactionType =
 	| TransferTransaction
 	| CashInTransaction
 	| ServicePaymentTransaction;
+
+export interface TransferRequest {
+	amount: number;
+	targetUser: string;
+	comment: string;
+}

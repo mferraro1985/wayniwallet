@@ -15,4 +15,14 @@ export const UserService = {
 			throw new Error("Failed to load user data");
 		}
 	},
+	async updateBalance(amount: number): Promise<User> {
+		try {
+			const user = await apiCall.get<User>("user");
+			if (!user) throw new Error("User not found");
+			return apiCall.put("user", { balance: user.balance + amount });
+		} catch (error) {
+			console.error("Error updating user:", error);
+			throw new Error("Failed to update user data");
+		}
+	}
 };

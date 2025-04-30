@@ -5,9 +5,9 @@ export default function useFetchUserData() {
 	const { data, isLoading, isError } = useQuery({
 		queryKey: ["user"],
 		queryFn: () => UserService.getUser(),
-		refetchOnWindowFocus: false,
+		refetchOnWindowFocus: true,
 		// biome-ignore lint/style/useNumberNamespace: <explanation>
-		staleTime: Infinity,
+		//staleTime: Infinity,
 	});
 
 	return { data, isLoading, isError };

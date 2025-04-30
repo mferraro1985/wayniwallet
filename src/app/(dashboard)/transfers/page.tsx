@@ -13,9 +13,9 @@ export default function TransferPage() {
 	const { data: transafersData, isLoading: transfersIsLoading } = useQuery({
 		queryKey: ["transfers"],
 		queryFn: () => TransactionService.getAllTransfers(),
-		refetchOnWindowFocus: false,
+		refetchOnWindowFocus: true,
 		// biome-ignore lint/style/useNumberNamespace: <explanation>
-		staleTime: Infinity,
+		staleTime: 1000 * 60,
 	});
 	return (
 		<>

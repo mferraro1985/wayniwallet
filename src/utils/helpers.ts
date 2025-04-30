@@ -28,3 +28,21 @@ export function formatDate(isoDate: string) {
 
 	return `${datePart} · ${timePart}`;
 }
+
+export function formatTime(isoDate: string): string {
+	const date = new Date(isoDate);
+	return date.toLocaleTimeString("en-US", {
+		hour: "2-digit",
+		minute: "2-digit",
+		hour12: false,
+	});
+}
+
+export function formatLongDate(isoDate: string): string {
+	const date = new Date(isoDate);
+	return date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
+}
