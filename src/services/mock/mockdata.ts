@@ -40,7 +40,7 @@ class MockData {
 			id: apiUser.login.uuid,
 			profile: {
 				avatar: apiUser.picture.large,
-				firsName: apiUser.name.first,
+				firstName: apiUser.name.first,
 				lastName: apiUser.name.last,
 				fullName: `${apiUser.name.first} ${apiUser.name.last}`,
 				email: apiUser.email,
@@ -72,7 +72,7 @@ class MockData {
 		return apiUsers.map((apiUser) => ({
 			id: apiUser.login.uuid,
 			avatar: apiUser.picture.large,
-			firsName: apiUser.name.first,
+			firstName: apiUser.name.first,
 			lastName: apiUser.name.last,
 			fullName: `${apiUser.name.first} ${apiUser.name.last}`,
 			email: apiUser.email,

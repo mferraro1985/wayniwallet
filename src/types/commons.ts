@@ -14,7 +14,7 @@ export interface Transaction {
 
 export interface UserProfile {
 	avatar: string;
-	firsName: string;
+	firstName: string;
 	lastName: string;
 	fullName: string;
 	email: string;

@@ -11,7 +11,7 @@ export default function ProfilePage() {
 		<>
 			<PageHeader title="Profile" />
 			<Card className="grow-1 gap-8">
-				<UserAvatar loading={isLoading} fullname={user?.profile.fullName || ""} avatar={user?.profile.avatar || ""} size={"big"} />
+				<UserAvatar loading={isLoading} firstname={user?.profile.firstName || ""} lastname={user?.profile.lastName || ""} avatar={user?.profile.avatar || ""} variant={"profile"} />
 				<ProfileInformation userdata={user} loading={isLoading} />
 			</Card>
 		</>

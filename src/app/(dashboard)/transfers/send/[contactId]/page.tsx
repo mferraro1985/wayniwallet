@@ -31,9 +31,10 @@ export default function SendPage({
 			</div>
 			<Card className="grow-1 gap-6 pb-7">
 				<UserAvatar
-					fullname={contactsData?.fullName || ""}
+					firstname={contactsData?.firstName || ""}
+					lastname={contactsData?.lastName || ""}
 					avatar={contactsData?.avatar || ""}
-					size="medium"
+					variant="contact"
 					loading={contactIsLoading}
 				/>
 				<SendAgainForm balance={user?.balance || 0} contactId={contactId}/>

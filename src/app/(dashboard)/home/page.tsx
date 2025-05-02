@@ -35,7 +35,8 @@ export default function HomePage() {
 			<div className="flex flex-col gap-[2.625rem] p-4">
 				<UserAvatar
 					loading={userIsLoading}
-					fullname={user?.profile.fullName || ""}
+					firstname={user?.profile.firstName || ""}
+					lastname={user?.profile.lastName || ""}
 					avatar={user?.profile.avatar || ""}
 				/>
 				<BalanceBox amount={user?.balance || 0} />

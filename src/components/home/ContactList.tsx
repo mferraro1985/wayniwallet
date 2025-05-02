@@ -50,7 +50,7 @@ export default function ContactList({
 									className="flex flex-col items-center w-auto hover:font-bold"
 								>
 									<Avatar src={contact.avatar} />
-									<span className="text-sm">{contact.firsName}</span>
+									<span className="text-sm">{contact.firstName}</span>
 								</Link>
 							</SwiperSlide>
 						))}
